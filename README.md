@@ -4,6 +4,10 @@ I built this project to showcase my skills in cloud computing and web developmen
 
 You can view my resume here: [link to resume website will have my github actions update this]
 
+### AWS Services diagram
+
+![AWS Services Diagram](https://user-images.githubusercontent.com/98762800/156835852-d4388868-afae-4ee7-91a6-139b3372e9c5.png)
+
 ### Dev branch workflow
 
 1. I create a new branch from the `main` branch.
@@ -16,10 +20,6 @@ You can view my resume here: [link to resume website will have my github actions
 
 1. I push my changes to the `main` branch.
 2. GitHub Actions triggers a workflow to deploy the changes to production.
-
-### AWS Services diagram
-
-[Image of the AWS Services diagram](!https://user-images.githubusercontent.com/98762800/156835852-d4388868-afae-4ee7-91a6-139b3372e9c5.png)
 
 ### Additional notes
 
