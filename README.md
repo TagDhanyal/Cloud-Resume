@@ -19,7 +19,7 @@ You can view my resume here: [link to resume website will have my github actions
 
 ### AWS Services diagram
 
-[Image of the AWS Services diagram](https://user-images.githubusercontent.com/98762800/156835852-d4388868-afae-4ee7-91a6-139b3372e9c5.png)
+[Image of the AWS Services diagram](!https://user-images.githubusercontent.com/98762800/156835852-d4388868-afae-4ee7-91a6-139b3372e9c5.png)
 
 ### Additional notes
 
