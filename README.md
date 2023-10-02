@@ -1,31 +1,28 @@
-# cloud-resume-challenge
+## My Cloud Resume Challenge
 
-This project is my online resume, a static web page, serving simple html & css I wrote from scratch to keep it clean.
+I built this project to showcase my skills in cloud computing and web development. It is a static web page hosted on AWS S3 Using Cloudfront as the CDN, and I used Terraform to create and manage the infrastructure, and GitHub Actions to automate the deployment process.
 
-Using "aws-vault", which helps me manage AWS profiles and store credentials securely, and GitHub actions is using secrets for this during CI/CD.
+You can view my resume here: [link to resume website will have my github actions update this]
 
-You can visit [my domain here](https://www.Dhanyal.dev) which is the result of this project.
+### Dev branch workflow
 
-#### How this project works at the moment:
-Any push to Main branch will trigger the GitHub actions I created which will:
-* terraform init
-* terraform apply (auto approve)
-* S3 sync my website files (html & css)
-* trigger Cypress tests which hit the API endpoint and validate the response (heartbeat check)
+1. I create a new branch from the `main` branch.
+2. I make my changes to the website code.
+3. I push my changes to the dev branch.
+4. I create a pull request to merge the dev branch into the `main` branch.
+5. Once the pull request is approved and merged, the changes are deployed to production.
 
-#### high level description of functionality
-* S3 bucket hosts the website
-* certificates and permissions configured in AWS Route53, ACM, Policies
-* Cloudfront used to meet https requirement and cache control
-* DynamoDB and Lambda function used to implement visitor counter.
-* JS used to retreive counter value from API and display on site
-* APIGateway used to implement API endpoint
+### Main branch workflow
 
-## High level design of major AWS pieces:
-![AWS_Services_diagram drawio](https://user-images.githubusercontent.com/98762800/156835852-d4388868-afae-4ee7-91a6-139b3372e9c5.png)
+1. I push my changes to the `main` branch.
+2. GitHub Actions triggers a workflow to deploy the changes to production.
 
-All services were configured and provisioned by Terraform IaC code, from the beginning. I built 2 services in the AWS Console before realizing it would be better for my approach to do it all in IaC from the start.
+### AWS Services diagram
 
-Plenty of changes can be made, I will be adding GitHub Issues to the repo for the items I plan on refactoring.
+[Image of the AWS Services diagram](https://user-images.githubusercontent.com/98762800/156835852-d4388868-afae-4ee7-91a6-139b3372e9c5.png)
 
+### Additional notes
 
+* I use the `dev` branch to develop and test my changes before merging them into the `main` branch.
+* I use pull requests to get feedback on my changes and to ensure that they are ready to be deployed to production.
+* I use GitHub Actions to automate the deployment process, so that I don't have to manually deploy my changes to production.
