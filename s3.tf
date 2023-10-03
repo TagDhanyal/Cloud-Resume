@@ -37,14 +37,25 @@ resource "aws_s3_bucket" "root_bucket" {
   tags = var.common_tags
 }
 
-# uplaod the badges to the s3 bucket then invalidate cache
+# Upload the badges to the S3 bucket then invalidate cache
 resource "aws_s3_bucket_object" "images" {
   for_each = fileset("${path.module}/resume-site/images", "*.png")
 
-  bucket       = "dhanyalresume"
+  bucket       = aws_s3_bucket.www_bucket.id
   key          = "images/${each.value}"
   source       = "${path.module}/resume-site/images/${each.value}"
   acl          = "public-read"
   content_type = "image/png"
   cache_control = "max-age=31536000, public"
+}
+
+# Make sure to wait for the www_bucket and root_bucket to be created
+resource "null_resource" "wait_for_buckets" {
+  triggers = {
+    bucket_ids = [aws_s3_bucket.www_bucket.id, aws_s3_bucket.root_bucket.id]
+  }
+
+  provisioner "local-exec" {
+    command = "echo Buckets are created."
+  }
 }
