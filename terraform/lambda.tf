@@ -1,11 +1,11 @@
 
 locals {
-    lambda_zip_location = "outputs/dbcall.zip"
+    lambda_zip_location = "../outputs/dbcall.zip"
 }
 
 data "archive_file" "dbcall" {
   type        = "zip"
-  source_file = "dbcall.py"
+  source_file = "../dbcall.py"
   output_path = "${local.lambda_zip_location}"
 }
 
