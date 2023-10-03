@@ -48,14 +48,3 @@ resource "aws_s3_bucket_object" "images" {
   content_type = "image/png"
   cache_control = "max-age=31536000, public"
 }
-
-# Make sure to wait for the www_bucket and root_bucket to be created
-resource "null_resource" "wait_for_buckets" {
-  triggers = {
-    bucket_ids = [aws_s3_bucket.www_bucket.id, aws_s3_bucket.root_bucket.id]
-  }
-
-  provisioner "local-exec" {
-    command = "echo Buckets are created."
-  }
-}
