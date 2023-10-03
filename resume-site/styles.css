@@ -131,40 +131,53 @@ html * {
 .projects {
     padding: 20px;
     background: white; /* Change the background color to white */
-    margin-top: 20px;
+    margin: 20px auto; /* Center-align the projects section both horizontally and vertically */
+    text-align: center; /* Center-align the content within the projects section */
 }
 
 .project_header h1 {
     text-align: left;
     font-size: 36px;
-    color: rgb(36, 40, 44);
+    color: rgb(34, 32, 32);
 }
 
 .project_title {
     margin-bottom: 20px; /* Increased margin between project sections */
 }
 
+/* Project title styles */
 .project_title h1 {
     font-size: 20px;
-    color: rgb(10, 11, 12);
-    margin-bottom: 5px; /* Added margin between title and description */
+    color: rgb(42, 42, 43);
+    font-weight: bold; /* Add this line to make it bold */
 }
 
+/* Project description styles */
 .project_title h2 {
     font-size: 14px;
-    color: #2b2727;
-    margin-bottom: 10px; /* Added margin between title and description */
+    color: #030303;
+    opacity: 0.9; /* Adjusted opacity to make it slightly darker */
+    font-family: Arial, Helvetica, sans-serif; /* Added a different font */
 }
 
 .project_description {
     margin-bottom: 30px; /* Increased margin between project description and next project title */
 }
 
+/* Projects section header styles */
+.project_header h1 {
+    text-align: left;
+    font-size: 36px;
+    font-weight: bold; /* Make the header bold */
+    color: rgb(34, 32, 32);
+}
+
 /* Education section */
 .education {
     padding: 20px;
     background: white; /* Change the background color to white */
-    margin-top: 20px;
+    margin: 20px auto; /* Center-align the education section both horizontally and vertically */
+    text-align: center; /* Center-align the content within the education section */
 }
 
 .education_header h1 {
