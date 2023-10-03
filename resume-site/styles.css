@@ -1,0 +1,260 @@
+/* Global styles */
+html * {
+    font-family: Cambria, Georgia, serif;
+    font-weight: 500;
+    line-height: 1.3rem;
+}
+
+/* Parent container */
+.parent_container {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    background: rgb(207, 207, 207);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 20px 20px #888888;
+    /* Remove height: 100vh; */
+}
+
+/* Upper container */
+.parent_container .upper_container {
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    background: rgb(236, 236, 236);
+}
+
+/* Name and info section */
+.name_info {
+    padding: 20px;
+    text-align: center;
+}
+
+.name_info h1 {
+    font-size: 46px;
+    margin: auto;
+    padding: 20px;
+}
+
+.name_info h2 {
+    font-size: 16px;
+}
+
+.name_info h3 {
+    font-size: 14px;
+}
+
+/* Social Icons Section */
+.social_icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social_icons a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social_icons img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social_icons img:hover {
+    transform: scale(1.1);
+}
+
+.middle_container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    max-width: 1024px;
+    background: rgb(255, 255, 255);
+    /* flex-wrap: wrap; */
+}
+
+/* Left container */
+.middle_left_container {
+    position: relative;
+    width: 75%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align children to the top */
+}
+
+/* Right container */
+.middle_right_container {
+    position: relative;
+    width: 100%; /* Use 100% width to make it centered */
+    background: rgb(236, 236, 236);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
+    padding: 20px; /* Added padding for spacing */
+}
+
+/* Certifications section */
+.certs {
+    padding: 20px;
+    background: rgb(236, 236, 236);
+    margin-top: 20px;
+}
+
+.certifications h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cert_badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Center align the "Skills," "Projects," and "Education" sections */
+.skills_section, .projects, .education {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Projects section */
+.projects {
+    padding: 20px;
+    background: white; /* Change the background color to white */
+    margin: 20px auto; /* Center-align the projects section both horizontally and vertically */
+    text-align: center; /* Center-align the content within the projects section */
+}
+
+.project_header h1 {
+    text-align: left;
+    font-size: 36px;
+    color: rgb(34, 32, 32);
+}
+
+.project_title {
+    margin-bottom: 20px; /* Increased margin between project sections */
+}
+
+/* Project title styles */
+.project_title h1 {
+    font-size: 20px;
+    color: rgb(42, 42, 43);
+    font-weight: bold; /* Add this line to make it bold */
+}
+
+/* Project description styles */
+.project_title h2 {
+    font-size: 14px;
+    color: #030303;
+    opacity: 0.9; /* Adjusted opacity to make it slightly darker */
+    font-family: Arial, Helvetica, sans-serif; /* Added a different font */
+}
+
+.project_description {
+    margin-bottom: 30px; /* Increased margin between project description and next project title */
+}
+
+/* Projects section header styles */
+.project_header h1 {
+    text-align: left;
+    font-size: 36px;
+    font-weight: bold; /* Make the header bold */
+    color: rgb(34, 32, 32);
+}
+
+/* Education section */
+.education {
+    padding: 20px;
+    background: white; /* Change the background color to white */
+    margin: 20px auto; /* Center-align the education section both horizontally and vertically */
+    text-align: center; /* Center-align the content within the education section */
+}
+
+.education_header h1 {
+    font-size: 36px;
+    color: rgb(36, 40, 44); /* Set the same color as the Projects header */
+    font-weight: normal; /* Remove bold font-weight */
+}
+
+.education_item {
+    margin-top: 20px;
+}
+
+.education_title {
+    font-size: 15px;
+    color: rgb(36, 40, 44);
+}
+
+.education_subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.education_date {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Style the Skills section */
+.skills_section {
+    flex: 1; /* Takes equal width within the container */
+    margin-right: 20px; /* Adjust the right margin between sections */
+}
+
+.skills_header h1 {
+    font-size: 24px; /* Increase the font size for the section title */
+    margin-bottom: 10px; /* Add some spacing between the title and the skills list */
+}
+
+.skills_list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills_list li {
+    display: inline-block; /* Display skills in a single line */
+    margin-right: 10px; /* Adjust the right margin between skills */
+    font-size: 16px; /* Adjust the font size for skills */
+    background-color: #f2f2f2; /* Add a background color to each skill */
+    padding: 5px 10px; /* Add padding to the skills for a button-like appearance */
+    border-radius: 5px; /* Add rounded corners to the skills */
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.counter_text {
+    background: #f5f5f5;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 80px; 
+}
+
+.counter_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter_label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.counter_value {
+    font-size: 24px;
+    color: #007bff;
+    margin-top: 10px;
+}
