@@ -1,4 +1,4 @@
-# Cloudfront distribution for main S3 site.
+# CloudFront distribution for main S3 site
 resource "aws_cloudfront_distribution" "www_s3_distribution" {
   origin {
     domain_name = aws_s3_bucket.www_bucket.website_endpoint
@@ -36,7 +36,6 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
       }
     }
 
-    viewer_protocol_policy = "redirect-to-https"  # Redirect to HTTPS
     min_ttl = 0
     default_ttl = 0
     max_ttl = 0
@@ -49,19 +48,15 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
     }
   }
 
-  viewer_certificate {
-    ssl_support_method = "sni-only"
-    minimum_protocol_version = "TLSv1.2_2021"
-  }
-
   tags = var.common_tags
 }
 
-# Cloudfront S3 for redirect to www.
+# CloudFront S3 distribution for redirect to www
 resource "aws_cloudfront_distribution" "root_s3_distribution" {
   origin {
     domain_name = aws_s3_bucket.root_bucket.website_endpoint
     origin_id = "S3-.${var.bucket_name}"
+
     custom_origin_config {
       http_port = 80
       https_port = 443
@@ -90,7 +85,6 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
       headers = ["Origin"]
     }
 
-    viewer_protocol_policy = "redirect-to-https"  # Redirect to HTTPS
     min_ttl = 0
     default_ttl = 0
     max_ttl = 0
@@ -100,11 +94,6 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
     geo_restriction {
       restriction_type = "none"
     }
-  }
-
-  viewer_certificate {
-    ssl_support_method = "sni-only"
-    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = var.common_tags
