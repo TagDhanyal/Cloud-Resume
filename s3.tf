@@ -20,7 +20,6 @@ resource "aws_s3_bucket" "www_bucket" {
 
 # Attach the bucket policy
 resource "aws_s3_bucket_policy" "www_bucket_policy" {
-  name = "www_bucket_policy"
 
   bucket = aws_s3_bucket.www_bucket.id
 
