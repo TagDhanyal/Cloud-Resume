@@ -36,6 +36,7 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
       }
     }
 
+    viewer_protocol_policy = "redirect-to-https"  # Redirect to HTTPS
     min_ttl = 0
     default_ttl = 0
     max_ttl = 0
@@ -48,6 +49,10 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
     }
   }
 
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
+
   tags = var.common_tags
 }
 
@@ -56,7 +61,6 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
   origin {
     domain_name = aws_s3_bucket.root_bucket.website_endpoint
     origin_id = "S3-.${var.bucket_name}"
-
     custom_origin_config {
       http_port = 80
       https_port = 443
@@ -85,6 +89,7 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
       headers = ["Origin"]
     }
 
+    viewer_protocol_policy = "redirect-to-https"  # Redirect to HTTPS
     min_ttl = 0
     default_ttl = 0
     max_ttl = 0
@@ -94,6 +99,10 @@ resource "aws_cloudfront_distribution" "root_s3_distribution" {
     geo_restriction {
       restriction_type = "none"
     }
+  }
+
+  viewer_certificate {
+    cloudfront_default_certificate = true
   }
 
   tags = var.common_tags
