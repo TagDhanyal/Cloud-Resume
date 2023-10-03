@@ -57,7 +57,7 @@ resource "aws_s3_bucket_policy" "www_bucket_policy" {
       Effect = "Allow",
       Principal = "*",
       Action = "s3:GetObject",
-      Resource = aws_s3_bucket.www_bucket.arn
+      Resource = "${aws_s3_bucket.www_bucket.arn}/*"
     }]
   })
 }
