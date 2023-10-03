@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Initialize Terraform
         uses: hashicorp/setup-terraform@v2
@@ -40,12 +40,12 @@ jobs:
         run: terraform plan -no-color
         continue-on-error: true
 
-      - name: Set Terraform Outputs as Environment Variables
+      - name: Set Terraform Outputs as Environment Files
         id: set-terraform-outputs
         run: |
-          echo "::set-env name=S3_BUCKET::$(terraform output s3_bucket_name)"
-          echo "::set-env name=CLOUDFRONT_DISTRIBUTION_ID::$(terraform output cloudfront_distribution_id)"
-          echo "::set-env name=API_GATEWAY_INVOKE_URL::$(terraform output api_gateway_invoke_url)"
+          echo "S3_BUCKET=$(terraform output s3_bucket_name)" >> $GITHUB_ENV
+          echo "CLOUDFRONT_DISTRIBUTION_ID=$(terraform output cloudfront_distribution_id)" >> $GITHUB_ENV
+          echo "API_GATEWAY_INVOKE_URL=$(terraform output api_gateway_invoke_url)" >> $GITHUB_ENV
 
   get-s3-bucket:
     name: Get S3 Bucket Name
