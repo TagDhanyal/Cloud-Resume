@@ -62,12 +62,4 @@ resource "aws_s3_bucket_object" "images" {
   bucket       = aws_s3_bucket.www_bucket.id
   key          = "images/${each.value}"
   source       = "${path.module}/resume-site/images/${each.value}"
-  content_type = "image/png"
-  cache_control = "max-age=31536000, public"
-}
-
-  source       = "${path.module}/resume-site/images/${each.value}"
-  acl          = "public-read"
-  content_type = "image/png"
-  cache_control = "max-age=31536000, public"
 }
