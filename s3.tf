@@ -7,10 +7,6 @@ resource "aws_s3_bucket" "www_bucket" {
     error_document = "404.html"
   }
 
-  # Allow public access to the bucket
-  block_public_acls   = false
-  block_public_policy = false
-
   cors_rule {
     allowed_headers = ["Authorization", "Content-Length"]
     allowed_methods = ["GET", "POST"]
@@ -27,10 +23,6 @@ resource "aws_s3_bucket" "root_bucket" {
   website {
     redirect_all_requests_to = "https://dhanyalresume.s3-website-${var.aws_region}.amazonaws.com"
   }
-
-  # Allow public access to the bucket
-  block_public_acls   = false
-  block_public_policy = false
 
   cors_rule {
     allowed_headers = ["Authorization", "Content-Length"]
@@ -69,3 +61,5 @@ resource "aws_s3_bucket_policy" "www_bucket_policy" {
     }]
   })
 }
+
+# ... (rest of your configuration)
